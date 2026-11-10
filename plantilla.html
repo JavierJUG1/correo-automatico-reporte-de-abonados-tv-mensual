@@ -1,0 +1,39 @@
+<!-- Plantilla del correo. Las variables {{fecha}} y {{generado}} las rellena el script.
+     Todo el CSS va inline porque Outlook ignora la mayoría de estilos en <style>. -->
+<table width="100%" cellpadding="0" cellspacing="0" style="font-family:Segoe UI,Arial,sans-serif;font-size:14px;color:#333333;">
+  <tr>
+    <td style="background:#1f4e79;color:#ffffff;padding:14px 20px;font-size:18px;font-weight:bold;">
+      Reporte de ventas – {{fecha}}
+    </td>
+  </tr>
+  <tr>
+    <td style="padding:20px;">
+      <p style="margin:0 0 12px 0;">Buenos días,</p>
+      <p style="margin:0 0 12px 0;">
+        Adjunto encontrarán el reporte de ventas correspondiente al día anterior.
+      </p>
+      <p style="margin:0 0 20px 0;color:#777777;font-size:12px;">
+        Generado automáticamente el {{generado}}.
+      </p>
+
+      <!-- ============ FIRMA ============
+           Reemplaza este bloque por el contenido de tu firma de Outlook:
+           %APPDATA%\Microsoft\Signatures\TuFirma.htm
+           Las imágenes se referencian con src="cid:nombre" y se declaran en INLINE_IMAGES (.env) -->
+      <table cellpadding="0" cellspacing="0" style="border-top:2px solid #1f4e79;margin-top:10px;padding-top:10px;">
+        <tr>
+          <td style="padding-right:12px;vertical-align:top;">
+            <img src="cid:logo" width="80" alt="Logo" style="display:block;">
+          </td>
+          <td style="vertical-align:top;line-height:1.4;">
+            <b style="color:#1f4e79;">Tu Nombre</b><br>
+            Cargo · Área<br>
+            Nombre de la empresa<br>
+            <a href="mailto:tu@empresa.com" style="color:#1f4e79;">tu@empresa.com</a> · +57 300 000 0000
+          </td>
+        </tr>
+      </table>
+      <!-- ============ FIN FIRMA ============ -->
+    </td>
+  </tr>
+</table>

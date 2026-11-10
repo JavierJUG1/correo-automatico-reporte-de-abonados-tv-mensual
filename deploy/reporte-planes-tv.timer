@@ -1,0 +1,13 @@
+# Último día de cada mes a las 23:50 hora de Bogotá (igual que el corte del portal de TV),
+# sin importar la zona horaria configurada en el servidor.
+# Persistent=true: si el servidor estaba apagado a esa hora, corre al arrancar
+# (el script lo toma como corte del mes anterior y no reenvía un corte ya enviado).
+[Unit]
+Description=Reporte planes TV - ultimo dia de cada mes
+
+[Timer]
+OnCalendar=*-*~01 23:50:00 America/Bogota
+Persistent=true
+
+[Install]
+WantedBy=timers.target

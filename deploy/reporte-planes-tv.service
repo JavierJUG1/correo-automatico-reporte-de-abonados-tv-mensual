@@ -1,0 +1,17 @@
+# Ejecuta una vez el reporte de planes TV (lo dispara reporte-planes-tv.timer).
+# La carpeta está dentro del webroot de nginx, pero con permisos 700 de root nginx no puede
+# leerla (responde 404/403) sin tocar su configuración.
+# Se usa el Python del sistema con las librerías del .venv: ejecutar .venv/bin desde
+# /var/www/html choca con SELinux (203/EXEC) y así no hace falta cambiar reglas.
+[Unit]
+Description=Reporte mensual de planes TV por correo
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=root
+WorkingDirectory=/var/www/html/monthly_tv_reports
+Environment=PYTHONPATH=/var/www/html/monthly_tv_reports/.venv/lib/python3.12/site-packages
+ExecStart=/usr/bin/python3.12 /var/www/html/monthly_tv_reports/reporte_planes_tv.py
+TimeoutStartSec=30min

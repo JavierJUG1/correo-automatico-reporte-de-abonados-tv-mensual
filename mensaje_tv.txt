@@ -1,0 +1,5 @@
+Buenos días Andrés,
+
+Adjunto el reporte de número de abonados TV correspondiente al mes de {mes} del año {año}, con corte al {fecha_corte}.
+
+Cualquier inquietud, quedo pendiente.

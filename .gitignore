@@ -1,0 +1,13 @@
+# Secretos y sesión de correo
+.env
+.sesion_correo*.json
+
+# Salidas: Excel con datos de clientes, log y estado de envíos
+reportes/
+*.xlsx
+*.log
+
+# Python
+__pycache__/
+*.pyc
+.venv/
